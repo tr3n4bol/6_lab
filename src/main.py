@@ -28,18 +28,6 @@ class FileManager:
             'rename': self.file_ops.rename_file
         }
 
-    def load_config(self):
-        try:
-            with open('config/config.json', 'r') as f:
-                config = json.load(f)
-                self.work_dir = os.path.abspath(config['work_dir'])
-                self.curr_dir = self.work_dir
-                if not os.path.exists(self.work_dir):
-                    os.makedirs(self.work_dir)
-        except Exception as e:
-            print(f"Error loading config: {e}")
-            sys.exit(1)
-
     def show_help(self):
         print("Available commands:")
         print("  help      - Show this help")
